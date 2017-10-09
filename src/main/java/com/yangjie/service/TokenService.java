@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.yangjie.dao.WeixinTokenDao;
-import com.yangjie.entity.WeixinTokenBean;
+import com.yangjie.dao.TokenDao;
+import com.yangjie.entity.TokenBean;
 import com.yangjie.util.HttpUtil;
 import com.yangjie.util.JsonUtil;
 
@@ -18,9 +18,9 @@ import com.yangjie.util.JsonUtil;
  * @author YangJie [2017年10月9日 下午5:52:18]
  */
 @Service
-public class WeixinTokenService {
+public class TokenService {
 	
-	private Logger logger = LoggerFactory.getLogger(WeixinTokenService.class);
+	private Logger logger = LoggerFactory.getLogger(TokenService.class);
 	
 	/** 获取access_token地址 */
 	public static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token";
@@ -31,7 +31,7 @@ public class WeixinTokenService {
 	private String secret;
 	
 	@Autowired
-	private WeixinTokenDao tokenDao;
+	private TokenDao tokenDao;
 	
 	
 	/**
@@ -40,7 +40,7 @@ public class WeixinTokenService {
 	 * @return
 	 */
 	public String getAccessToken() {
-		WeixinTokenBean tokenBean = tokenDao.getToken();
+		TokenBean tokenBean = tokenDao.getToken();
 		// 判断当前token是否在有效期内
 		if (tokenBean!=null && tokenBean.getAccessToken()!=null) { 
 			if((System.currentTimeMillis()-tokenBean.getUpdateTime().getTime())/1000 < (tokenBean.getExpiresIn()-300)){
@@ -56,7 +56,7 @@ public class WeixinTokenService {
 		logger.debug("获取access_token请求地址: {}", urlBuilder);
 		String result = HttpUtil.get(urlBuilder.toString());
 		logger.debug("获取access_token返回数据: {}", result);
-		tokenBean = JsonUtil.toObject(result, WeixinTokenBean.class);
+		tokenBean = JsonUtil.toObject(result, TokenBean.class);
 		if (tokenBean!=null && tokenBean.getAccessToken()!=null) {
 			tokenBean.setUpdateTime(new Date());
 			tokenDao.setToken(tokenBean); // 缓存获取的token信息

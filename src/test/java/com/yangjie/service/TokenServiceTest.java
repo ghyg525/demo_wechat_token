@@ -8,15 +8,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class WeixinTokenServiceTest {
+public class TokenServiceTest {
 
 	@Autowired
-	private WeixinTokenService weixinTokenService;
+	private TokenService tokenService;
 	
 	@Test
 	public void test() {
-		System.out.println(weixinTokenService.getAccessToken());
-		System.out.println(weixinTokenService.getAccessToken());
+		System.out.println(tokenService.getAccessToken());
+		System.out.println(tokenService.getAccessToken());
 	}
 
 }

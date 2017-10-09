@@ -2,7 +2,7 @@ package com.yangjie.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.yangjie.entity.WeixinTokenBean;
+import com.yangjie.entity.TokenBean;
 
 /**
  * 单应用获取token可临时将token存储在内存
@@ -11,10 +11,10 @@ import com.yangjie.entity.WeixinTokenBean;
  * @author YangJie [2017年10月9日 下午5:50:09]
  */
 @Repository
-public class WeixinTokenDao {
+public class TokenDao {
 
 	/** 缓存Token信息 */
-	private WeixinTokenBean tokenBean;
+	private TokenBean tokenBean;
 
 	
 	/**
@@ -22,7 +22,7 @@ public class WeixinTokenDao {
 	 * @param appid
 	 * @return
 	 */
-	public WeixinTokenBean getToken(){
+	public TokenBean getToken(){
 		return tokenBean;
 	}
 	
@@ -31,7 +31,7 @@ public class WeixinTokenDao {
 	 * @param tokenBean
 	 * @return
 	 */
-	public void setToken(WeixinTokenBean tokenBean){
+	public void setToken(TokenBean tokenBean){
 		this.tokenBean = tokenBean;
 	}
 	

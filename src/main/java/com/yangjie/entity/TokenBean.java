@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * token保存实体
  * @author YangJie [2017年10月9日 下午5:52:06]
  */
-public class WeixinTokenBean {
+public class TokenBean {
 	
 	@JsonProperty("access_token")
 	private String accessToken;
