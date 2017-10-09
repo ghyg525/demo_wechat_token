@@ -1,7 +1,7 @@
 ##微信公众号配置
 wechat:  #测试号
-  appid: wxd548dd4ddb3cd5f4
-  secret: 237d176203e71a665d6878410d2bbd51
+  appid: 
+  secret: 
   
     
 ##日志配置
