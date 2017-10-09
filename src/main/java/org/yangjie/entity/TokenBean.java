@@ -1,4 +1,4 @@
-package com.yangjie.entity;
+package org.yangjie.entity;
 
 import java.util.Date;
 

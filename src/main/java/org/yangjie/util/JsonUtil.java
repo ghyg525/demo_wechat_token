@@ -1,4 +1,4 @@
-package com.yangjie.util;
+package org.yangjie.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;

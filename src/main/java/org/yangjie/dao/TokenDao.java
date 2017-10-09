@@ -1,8 +1,7 @@
-package com.yangjie.dao;
+package org.yangjie.dao;
 
 import org.springframework.stereotype.Repository;
-
-import com.yangjie.entity.TokenBean;
+import org.yangjie.entity.TokenBean;
 
 /**
  * 单应用获取token可临时将token存储在内存

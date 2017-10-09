@@ -1,4 +1,4 @@
-package com.yangjie.util;
+package org.yangjie.util;
 
 import java.io.IOException;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.yangjie.service;
+package org.yangjie.service;
 
 import java.util.Date;
 
@@ -7,11 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import com.yangjie.dao.TokenDao;
-import com.yangjie.entity.TokenBean;
-import com.yangjie.util.HttpUtil;
-import com.yangjie.util.JsonUtil;
+import org.yangjie.dao.TokenDao;
+import org.yangjie.entity.TokenBean;
+import org.yangjie.util.HttpUtil;
+import org.yangjie.util.JsonUtil;
 
 /**
  * 微信通用access_token
