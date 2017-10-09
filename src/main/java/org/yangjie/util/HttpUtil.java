@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import okhttp3.FormBody;
-import okhttp3.Headers;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -22,8 +20,6 @@ public class HttpUtil {
 	
 	private static final MediaType jsonMediaType =  MediaType.parse("application/json; charset=utf-8");
 	private static final MediaType xmlMediaType =  MediaType.parse("application/xml; charset=utf-8");
-	
-	private static final MediaType jpgMediaType =  MediaType.parse(" image/jpeg");
 	
 	
     /**
@@ -81,31 +77,6 @@ public class HttpUtil {
 			return post(url, form.build());
 		}
     	return null;
-    }
-    
-    /**
-     * post (xml)
-     * @param url
-     * @param body
-     * @return
-     */
-    public static String postJpg(String url, byte[] body) {
-    	return post(url, body, jpgMediaType);
-    }
-    
-    
-    
-    /**
-     * post (byte[])
-     * @param url
-     * @param body
-     * @param mediaType
-     * @return
-     */
-    private static String post(String url, byte[] body, MediaType mediaType) {
-    	return post(url, new MultipartBody.Builder().setType(MultipartBody.FORM)
-    			.addPart(Headers.of("Content-Disposition", "form-data;name=\"media\";filename=\"file.jpg\";filelength="+body.length), 
-				RequestBody.create(mediaType, body)).build());
     }
     
     /**
